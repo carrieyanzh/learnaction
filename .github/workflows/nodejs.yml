@@ -1,0 +1,27 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x] # Test with multiple Node.js versions
+
+    steps:
+    - uses: actions/checkout@v4 # Checks out your repository
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm' # Caches npm dependencies for faster builds
+    - name: Install dependencies
+      run: npm ci # Installs dependencies from package-lock.json
+    - name: Run tests
+      run: npm test # Executes your project's tests
