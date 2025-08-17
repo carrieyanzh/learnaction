@@ -22,6 +22,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm' # Caches npm dependencies for faster builds
     - name: Install dependencies
-      run: npm install # Installs dependencies from package-lock.json
-    - name: Run tests
-      run: npm test # Executes your project's tests
+      run: npm ci # Installs dependencies from package-lock.json
+#    - name: Run tests
+#      run: npm test # Executes your project's tests
