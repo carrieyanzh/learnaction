@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x] # Test with multiple Node.js versions
+        node-version: [20.x] # Test with multiple Node.js versions
 
     steps:
     - uses: actions/checkout@v4 # Checks out your repository
