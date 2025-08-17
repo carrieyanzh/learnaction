@@ -26,5 +26,7 @@ jobs:
         scope: '@octocat'
     - name: Install dependencies
       run: npm ci # Installs dependencies from package-lock.json
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 #    - name: Run tests
 #      run: npm test # Executes your project's tests
